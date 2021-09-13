@@ -1,0 +1,8 @@
+{
+    "require": {
+        "phpunit/phpunit": "^9.5",
+        "jangregor/phpstan-prophecy": "^0.8.1",
+        "phpspec/prophecy-phpunit": "^2.0",
+        "symfony/phpunit-bridge": "^5.3"
+    }
+}

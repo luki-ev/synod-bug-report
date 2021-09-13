@@ -1,0 +1,85 @@
+{
+    "name": "synod/bug-report",
+    "description": "Receiver for bug reports from Matrix client Synod.im / Element (Android an iOS)",
+    "type": "library",
+    "license": "GPL-2.0-or-later",
+    "keywords": [
+        "synod",
+        "synod.im",
+        "element",
+        "bug report"
+    ],
+    "authors": [
+        {
+            "name": "Dominic Tubach",
+            "email": "dnt@luki.org",
+            "homepage": "https://synod.im"
+        }
+    ],
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "php": "^8",
+        "beberlei/assert": "^3",
+        "psr/log": "^3",
+        "riverline/multipart-parser": "^2",
+        "symfony/http-foundation": "^5"
+    },
+    "require-dev": {
+        "nikolaposa/rate-limit": "^2",
+        "symfony/filesystem": "^5",
+        "symfony/mailer": "^5"
+    },
+    "suggest": {
+        "nikolaposa/rate-limit": "In order to use NikolaposaBugReportRateLimiter",
+        "symfony/filesystem": "In order to use FilesystemBugReportHandler",
+        "symfony/mailer": "In order to use EmailNotificationBugReportHandler"
+    },
+    "autoload": {
+        "psr-4":{
+            "Synod\\BugReport\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4":{
+            "Synod\\BugReport\\Tests\\": "tests/"
+          }
+    },
+    "scripts": {
+        "composer-php-cs-fixer": [
+            "@composer --working-dir=tools/php-cs-fixer"
+        ],
+        "composer-phpstan": [
+            "@composer --working-dir=tools/phpstan"
+        ],
+        "composer-phpunit": [
+            "@composer --working-dir=tools/phpunit"
+        ],
+        "composer-tools": [
+            "@composer-php-cs-fixer",
+            "@composer-phpstan",
+            "@composer-phpunit"
+        ],
+        "post-install-cmd": [
+            "@composer-tools install"
+        ],
+        "post-update-cmd": [
+            "@composer-tools update"
+        ],
+        "php-cs-fixer": [
+            "@php tools/php-cs-fixer/vendor/bin/php-cs-fixer fix -v --diff"
+        ],
+        "phpstan": [
+            "@php tools/phpstan/vendor/bin/phpstan"
+        ],
+        "phpunit": [
+            "@php tools/phpunit/vendor/bin/phpunit"
+        ],
+        "test": [
+            "@php-cs-fixer --dry-run",
+            "@phpstan",
+            "@phpunit"
+        ]
+    }
+}

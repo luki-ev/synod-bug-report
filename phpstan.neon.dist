@@ -1,0 +1,28 @@
+parameters:
+	paths:
+		- src
+		- tests
+	scanFiles:
+		- tools/phpunit/vendor/phpunit/phpunit/src/Framework/TestCase.php
+	scanDirectories:
+		- tools/phpunit/vendor/phpunit/phpunit/src/Framework
+	bootstrapFiles:
+		- tools/phpunit/vendor/autoload.php
+	level: 8
+	checkTooWideReturnTypesInProtectedAndPublicMethods: true
+	checkUninitializedProperties: true
+	checkMissingCallableSignature: true
+	treatPhpDocTypesAsCertain: false
+	exceptions:
+		check:
+			missingCheckedExceptionInThrows: true
+			tooWideThrowType: true
+		checkedExceptionClasses:
+			- '\Assert\AssertionFailedException'
+	implicitThrows: false
+	ignoreErrors:
+		-
+			message: "#^Method [^ ]+Test::[^ ]+ throws checked exception [^ ]+ but it's missing from the PHPDoc @throws tag.$#"
+			paths:
+				- tests/*
+	tmpDir: .phpstan
