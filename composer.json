@@ -1,6 +1,6 @@
 {
     "name": "synod/bug-report",
-    "description": "Receiver for bug reports from Matrix client Synod.im / Element (Android an iOS)",
+    "description": "Receiver for bug reports from Matrix client Synod.im / Element (Android and iOS)",
     "type": "library",
     "license": "GPL-2.0-or-later",
     "keywords": [
