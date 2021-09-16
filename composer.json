@@ -68,7 +68,10 @@
             "@composer-tools update"
         ],
         "php-cs-fixer": [
-            "@php tools/php-cs-fixer/vendor/bin/php-cs-fixer fix -v --diff"
+            "@php tools/php-cs-fixer/vendor/bin/php-cs-fixer"
+        ],
+        "php-cs-fix": [
+            "@php-cs-fixer fix -v --diff"
         ],
         "phpstan": [
             "@php tools/phpstan/vendor/bin/phpstan"
@@ -77,7 +80,7 @@
             "@php tools/phpunit/vendor/bin/phpunit"
         ],
         "test": [
-            "@php-cs-fixer --dry-run",
+            "@php-cs-fix --dry-run",
             "@phpstan",
             "@phpunit"
         ]
